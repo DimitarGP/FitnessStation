@@ -1,0 +1,33 @@
+﻿@using System.Web.Mvc.Html
+@model FitnessStation.Models.ViewModels.Workouts.DetailsWorkotsVm
+
+@{
+    ViewBag.Title = "Workouts Details";
+}
+
+
+<div class="container-fluid">
+    <article class="col-lg-5">
+        <h2 class="title">Details Workout</h2>
+        <h3>@Html.DisplayFor(vm => Model.Name)</h3>
+        <br />
+        <p>@Html.DisplayFor(vm => Model.Description)</p>
+        <span>@Html.DisplayNameFor(vm => Model.WorkouDate)</span>
+        <span>@Html.DisplayFor(vm => Model.WorkouDate)</span>
+        <br />
+        <br />
+        @*@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-sm btn-primary" })*@
+        @if (User.Identity.IsAuthenticated && Model.WorkouDate > DateTime.Now)
+        {
+            using (Html.BeginForm("Enroll", "User", FormMethod.Post))
+            {
+                <input type="number" value="@Model.Id" hidden="hidden" name="workoutId" />
+                <input type="submit" value="Sign In/Out" class="btn btn-sm btn-success" />
+            }
+        }
+    </article>
+
+
+   
+
+</div>

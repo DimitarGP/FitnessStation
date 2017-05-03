@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FitnessStation.Models.ViewModels.Workouts.WorkoutVm>
+
+@{
+    ViewBag.Title = "Fitness Station";
+}
+
+<h2>Welcome to Fitness Station</h2>
+
+@foreach (var vm in Model)
+{
+    <div class="form-horizontal">
+        <table class="table table-hover">
+            <tr class="row">
+                <td>
+                    @Html.DisplayNameFor(workoutVm => workoutVm.Name)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(vms => vm.Name)
+                </td>
+                <td class="text-right">
+                    @Html.ActionLink("Details", "Details", "Workouts", new { id = vm.Id }, new { @class = "btn btn-sm btn-info" })
+                </td>
+            </tr>
+        </table>
+    </div>
+
+}
+

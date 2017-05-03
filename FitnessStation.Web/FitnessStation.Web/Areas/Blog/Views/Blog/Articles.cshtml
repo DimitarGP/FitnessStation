@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FitnessStation.Models.ViewModels.Blog.ArticleVm>
+@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+<h2>Blog of Fitness Station</h2>
+
+<br />
+
+@Html.ActionLink("Add", "Add", null, new { @class = "btn btn-sm btn-primary" })
+<br />
+
+<div class="container-fluid">
+    @foreach (var vm in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @Html.DisplayNameFor(m => m.Title)
+                @Html.DisplayFor(vms => vm.Title)
+            </div>
+        </div>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">@Html.DisplayNameFor(m => m.Description)</div>
+            <div class="panel-body">
+                @Html.DisplayFor(vms => vm.Description)
+            </div>
+        </div>
+
+        @Html.DisplayNameFor(m => m.Author)
+        @Html.DisplayFor(vms => vm.Author)
+
+
+        @Html.DisplayNameFor(m => m.PublishDate)
+        @Html.DisplayFor(vms => vm.PublishDate)
+
+    }
+</div>

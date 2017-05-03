@@ -1,0 +1,18 @@
+﻿@model FitnessStation.Models.ViewModels.Users.ProfileVm
+
+@{
+    ViewBag.Title = "Profile Page";
+}
+
+<h2 class="title">My Profile</h2>
+<table class="table">
+    <tr>
+        <td>Name: @Html.DisplayFor(vm => vm.Name)</td>
+        <td>Email: @Html.DisplayFor(vm => vm.Email)</td>
+        <td>Birth Date: @Html.DisplayFor(vm => vm.BirthDate)</td>
+    </tr>
+</table>
+
+@Html.ActionLink("Edit","Edit","User",null, new {@class="btn btn-primary"})
+
+@Html.ActionLink("All Workouts", "Index", "Home",null, new {@class="btn btn-primary"})
